@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"
+    />
+
+    <title>Interactors</title>
+
+    <link rel="stylesheet" href="dist/reset.css" />
+    <link rel="stylesheet" href="dist/reveal.css" />
+    <link rel="stylesheet" href="dist/theme/night.css" />
+
+    <!-- Theme used for syntax highlighted code -->
+    <link rel="stylesheet" href="plugin/highlight/monokai.css" />
+  </head>
+
+  <style>
+    .italic {
+      font-style: italic;
+      color: blueviolet;
+    }
+  </style>
+
+  <body>
+    <div class="reveal">
+      <div class="slides">
+        <section>
+          <section>
+            <h1>Interactors</h1>
+          </section>
+          <section>Que es un interactor?</section>
+          <section>
+            <p>Es una clase que se encarga de realizar una tarea especifica</p>
+            <br />
+            <ul>
+              <li>
+                Se usan para encapsular la logica de
+                <span class="italic">negocio</span> de nuestra aplicacion
+              </li>
+              <li>
+                Cada interactor representa una
+                <span class="italic">accion</span> que nuestra applicacion puede
+                hacer
+              </li>
+            </ul>
+          </section>
+          <section></section>
+        </section>
+        <section>Slide 2</section>
+      </div>
+    </div>
+
+    <script src="dist/reveal.js"></script>
+    <script src="plugin/markdown/markdown.js"></script>
+    <script src="plugin/highlight/highlight.js"></script>
+    <script>
+      Reveal.initialize({
+        hash: false,
+        plugins: [RevealMarkdown, RevealHighlight],
+        progress: false,
+      });
+    </script>
+  </body>
+</html>
