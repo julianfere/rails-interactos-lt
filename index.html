@@ -91,7 +91,7 @@
             <pre>
               <code data-line-numbers data-trim>
                 context.success? # => true
-                context.fail! if context.cake.is_a_lie?
+                context.fail!
                 context.success? # => false
                 context.failure? # => true
               </code>
@@ -103,8 +103,68 @@
             <h1>Hooks</h1>
           </section>
           <section>
-            ...
+            <p>
+              El modulo <span class="italic">Interactor::Hooks</span> nos proporciona 3 hooks para ejecutar codigo:
+            </p>
+            <ul>
+              <li>before</li>
+              <li>after</li>
+              <li>around</li>
+            </ul>
           </section>
+          <section>
+              <pre>
+                <code data-line-numbers data-trim>
+                  class BakeCake
+                    include Interactor
+                    before do
+                      context.cake = Cake.new
+                    end
+                    def call
+                      context.cake.bake!
+                    end
+                  end
+                </code>
+              </pre>
+            </section>
+            <section>
+              <pre>
+                <code data-line-numbers data-trim>
+                  class BakeCake
+                    include Interactor
+                    before do
+                      context.cake = Cake.new
+                    end
+                    def call
+                      context.cake.bake!
+                    end
+                  end
+                </code>
+              </pre>
+            </section>
+            <section>
+              <pre>
+                <code data-line-numbers data-trim>
+                  class BakeCake
+                    include Interactor
+              
+                    before do
+                      context.cake = Cake.new
+                    end
+              
+                    around do |interactor|
+                      puts "Started at #{Time.now}"
+                      interactor.call
+                      puts "Finished at #{Time.now}"
+                    end
+              
+                    def call
+                      context.cake.bake!
+                    end
+                  end
+                </code>
+              </pre>
+            </section>
         </section>
       </div>
     </div>
