@@ -12,22 +12,13 @@
     <link rel="stylesheet" href="dist/reset.css" />
     <link rel="stylesheet" href="dist/reveal.css" />
     <link rel="stylesheet" href="dist/theme/night.css" />
-
-    <!-- Theme used for syntax highlighted code -->
     <link rel="stylesheet" href="plugin/highlight/monokai.css" />
+    <link rel="stylesheet" href="./index.css" />
   </head>
-
-  <style>
-    .italic {
-      font-style: italic;
-      color: blueviolet;
-    }
-  </style>
-
   <body>
     <div class="reveal">
       <div class="slides">
-        <section>
+        <section id="Interactor">
           <section>
             <h1>Interactors</h1>
           </section>
@@ -47,19 +38,84 @@
               </li>
             </ul>
           </section>
-          <section></section>
         </section>
-        <section>Slide 2</section>
+        <section id="Context">
+          <section>
+            <h1>Context</h1>
+          </section>
+          <section>
+            Cuando un interactor es ejecutado, se le pasa un contexto el cual
+            tiene informacion necesaria para realizar la tarea
+          </section>
+          <section>
+            Cuando el interactor cumple su unico proposito afecta el contexto
+            que se le proporciono
+            <aside class="notes">
+              Que significa esto? basicamente el Interactor su input es un
+              contexto el cual es mutado y despues se retorna
+            </aside>
+          </section>
+          <section>
+            <pre>
+              <code data-line-numbers data-trim>
+                context.cake = Cake.new
+                context.cake.is_a_lie? # => true
+              </code>
+            </pre>
+            <aside class="notes">
+              Intro al context fail: Tambien podemos marcar el contexto como
+              fallido si hay algun error durante la ejecucion del interactor
+            </aside>
+          </section>
+          <section>
+            Tambien tiene definidos los siguientes metodos:
+            <ul>
+              <li>context.fail!</li>
+              <li>context.failure?</li>
+              <li>context.success?</li>
+          </section>
+          <section>
+              <pre>
+                <code data-line-numbers data-trim>
+                  context.error = "the cake was a lie"
+                  context.fail! if context.cake.is_a_lie?
+                </code>
+              </pre>
+              <pre class="fragment fade-in">
+                <code data-line-numbers data-trim>
+                  context.fail!(error: "the cake was a lie") if context.cake.is_a_lie?
+                </code>
+              </pre>
+          </section>
+          <section>
+            <pre>
+              <code data-line-numbers data-trim>
+                context.success? # => true
+                context.fail! if context.cake.is_a_lie?
+                context.success? # => false
+                context.failure? # => true
+              </code>
+            </pre>
+          </section>
+        </section>
+        <section id="Hooks">
+          <section>
+            <h1>Hooks</h1>
+          </section>
+          <section>
+            ...
+          </section>
+        </section>
       </div>
     </div>
 
     <script src="dist/reveal.js"></script>
-    <script src="plugin/markdown/markdown.js"></script>
     <script src="plugin/highlight/highlight.js"></script>
+    <script src="plugin/notes/notes.js"></script>
     <script>
       Reveal.initialize({
         hash: false,
-        plugins: [RevealMarkdown, RevealHighlight],
+        plugins: [RevealHighlight, RevealNotes],
         progress: false,
       });
     </script>
