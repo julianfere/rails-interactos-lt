@@ -1,8 +1,0 @@
-.italic {
-  font-style: italic;
-  color: blueviolet;
-}
-
-li::marker {
-  color: blueviolet;
-}
